@@ -1,0 +1,18 @@
+services:
+  encounter-factory:
+    build: .
+    ports:
+      - "127.0.0.1:3000:3000"
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      HOST: 0.0.0.0
+      PORT: 3000
+      OPERATOR_ID: ${OPERATOR_ID:?Set OPERATOR_ID in .env}
+      OPERATOR_TOKEN: ${OPERATOR_TOKEN:?Set OPERATOR_TOKEN in .env}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"

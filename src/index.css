@@ -1,0 +1,267 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+:root {
+  --prestige-gold: #c5a059;
+  --parchment-base: #fcfaf2;
+  --parchment-ink: #1a1a1a;
+}
+
+@theme {
+  --color-primary: #a78bfa;
+  --color-secondary: #7c3aed;
+  --color-background: #09090b;
+  --color-surface: #18181b;
+  --color-error: #ef4444;
+  --color-warning: #f59e0b;
+  --color-info: #8b5cf6;
+  --color-accent: #c4b5fd;
+  --font-sans: "Geist", "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --font-serif: "EB Garamond", serif;
+  --font-display: "Outfit", sans-serif;
+
+  /* Command Center Semantic Tokens */
+  --color-cc-violet: #a78bfa;
+  --color-cc-ruby: #ef4444;
+  --color-cc-emerald: #10b981;
+  --color-cc-glass: rgba(9, 9, 11, 0.8);
+}
+
+.tactical-theme {
+  @apply bg-zinc-950 text-zinc-100;
+  --prestige-ink: #f4f4f5;
+  --parchment-base: #09090b;
+  background-image: none !important;
+  font-family: var(--font-sans);
+}
+
+.print-theme {
+  @apply bg-white text-black;
+  --prestige-ink: #000000;
+  --parchment-base: #ffffff;
+  background-image: none !important;
+  font-family: var(--font-sans);
+  border: 1px solid #e5e7eb !important;
+  box-shadow: none !important;
+}
+
+@utility grimoire-theme {
+  --parchment-base: #fcfaf2;
+  --parchment-texture: url('https://www.transparenttextures.com/patterns/old-map.png');
+  --prestige-ink: #1a1a1a;
+  --prestige-gold: #c5a059;
+  
+  background-color: var(--parchment-base);
+  background-image: var(--parchment-texture);
+  color: var(--prestige-ink);
+  font-family: var(--font-serif);
+  position: relative;
+  
+  & h1, & h2, & h3 {
+    font-family: var(--font-display);
+    color: #111;
+  }
+
+  @media print {
+    background-image: none !important;
+    background-color: white !important;
+    color: black !important;
+    border: none !important;
+    box-shadow: none !important;
+    
+    & * {
+      color: black !important;
+      background-color: transparent !important;
+    }
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-zinc-100;
+  }
+}
+
+@utility glass {
+  @apply bg-zinc-900/50 backdrop-blur-md border border-white/5;
+}
+
+@utility glass-dark {
+  @apply bg-zinc-950/80 backdrop-blur-xl border border-white/10;
+}
+
+@utility premium-card {
+  @apply glass rounded-2xl transition-all duration-500 hover:border-primary/40 hover:shadow-[0_0_40px_-10px_rgba(167,139,250,0.1)];
+}
+
+@utility glass-premium {
+  @apply bg-zinc-950/80 backdrop-blur-2xl border border-white/10 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.8)];
+}
+
+@utility violet-glow {
+  box-shadow: 0 0 20px rgba(167, 139, 250, 0.15);
+}
+
+@utility ruby-glow {
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.15);
+}
+
+@utility emerald-glow {
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.15);
+}
+
+@utility brutal-text {
+  @apply font-mono tracking-tighter uppercase;
+}
+
+@utility tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+@utility premium-input {
+  @apply bg-zinc-950/50 border border-white/5 rounded-xl px-4 py-3 font-medium focus:ring-2 focus:ring-primary/20 focus:border-primary/40 outline-none transition-all placeholder:text-zinc-700 text-[15px];
+}
+
+textarea.premium-input {
+  @apply transition-[height,border-color,box-shadow,transform] duration-500 ease-in-out;
+}
+
+textarea.premium-input:focus {
+  min-height: 450px !important;
+  @apply z-10 relative shadow-[0_20px_50px_-12px_rgba(0,0,0,0.8)] border-primary/40;
+}
+
+@utility section-label {
+  @apply text-[13px] font-bold text-zinc-400 tracking-wider;
+}
+
+@utility panel-title {
+  @apply text-xl font-black text-white tracking-tight;
+}
+
+@utility body-hint {
+  @apply text-[13px] text-zinc-500 font-normal leading-relaxed;
+}
+
+/* Hide Spinners for Number Inputs */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+@utility red-glow {
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.15);
+}
+
+@layer base {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(167, 139, 250, 0.2) transparent;
+  }
+
+  *::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: rgba(167, 139, 250, 0.1);
+    border-radius: 20px;
+    border: 2px solid transparent;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background: rgba(167, 139, 250, 0.3);
+  }
+}
+
+
+@layer base {
+  @media print {
+    header, .no-print {
+      display: none !important;
+    }
+    body {
+      background: white !important;
+      color: black !important;
+    }
+    .premium-card, .glass {
+      background: white !important;
+      border: 1px solid #ccc !important;
+      box-shadow: none !important;
+      color: black !important;
+    }
+    .prose {
+      color: black !important;
+    }
+  }
+}
+
+@utility prestige-divider {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--prestige-gold), transparent);
+  margin: 3rem auto;
+  width: 80%;
+  position: relative;
+  overflow: visible;
+
+  &::after {
+    content: '⬥';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--parchment-base);
+    padding: 0 12px;
+    color: var(--prestige-gold);
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  @media print {
+    background: #000 !important;
+    width: 100% !important;
+    margin: 2rem 0 !important;
+    &::after {
+      display: none !important;
+    }
+  }
+}
+
+/* Tactical Scannability Hardening */
+.grimoire-theme {
+  /* Force stats to sans-serif */
+  & .stat-block,
+  & table,
+  & .balance-badge,
+  & .vtt-block,
+  & .monster-stats,
+  & [data-tactical="true"] {
+    font-family: var(--font-display) !important;
+    letter-spacing: -0.01em;
+  }
+  
+  & table {
+    background-color: rgba(0,0,0,0.02);
+  }
+  
+  & th {
+    background-color: rgba(197, 160, 89, 0.1);
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+  }
+}
+

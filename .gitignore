@@ -1,0 +1,44 @@
+# BEGIN GENERATED PUBLIC RELEASE DENYLIST
+.agents/**
+.claude/**
+.venv/**
+node_modules/**
+dist/**
+coverage/**
+Generated/**
+Reports/**
+scratch/**
+storage/**
+artifacts/**
+test_dir/**
+.env
+.env.*
+mcp.json
+setup.json
+CGC_REPORT.md
+*planning*
+*.log
+cgc_index_log*
+chunks_backup.md
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+credentials*.json
+service-account*.json
+*.zip
+*.tar
+*.tgz
+*.gz
+*.7z
+*.rar
+*.pdf
+*.map
+!.env.example
+# END GENERATED PUBLIC RELEASE DENYLIST
+
+# Local editor and operating-system files (manually maintained).
+.DS_Store
+.vscode/
+Encounter_*.html

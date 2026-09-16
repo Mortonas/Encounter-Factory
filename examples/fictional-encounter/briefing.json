@@ -1,0 +1,9 @@
+{
+  "sessionName": "The Bell Beneath Ashfall",
+  "setting": "A wind-carved bell tower half buried in warm volcanic ash",
+  "tone": "Tense rescue",
+  "objective": "Free the trapped survey crew before the tower settles",
+  "party": { "size": 4, "level": 5 },
+  "opposition": ["two ashbound sentinels", "one unstable bell mechanism"],
+  "targetRounds": 4
+}
